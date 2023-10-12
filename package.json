@@ -1,0 +1,10 @@
+{
+  "name": "pitaya-web",
+  "repository": "git@github.com:shengjie77/pitaya-web.git",
+  "author": "shengjie <shengjie0202@outlook.com>",
+  "private": true,
+  "workspaces": [
+    "utils",
+    "whiteboard"
+  ]
+}

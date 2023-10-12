@@ -1,0 +1,15 @@
+{
+  "name": "whiteboard",
+  "version": "1.0.0",
+  "source": "src/index.html",
+  "scripts": {
+    "dev": "parcel"
+  },
+  "devDependencies": {
+    "parcel": "^2.10.0",
+    "typescript": "^5.2.2"
+  },
+  "dependencies": {
+    "pitaya-utils": "file:utils"
+  }
+}
