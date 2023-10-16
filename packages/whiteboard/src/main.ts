@@ -1,4 +1,13 @@
+import { foo } from 'packages/utils'
+
+class Board {
+  public startDraw(x: number, y: number) { }
+  public upateDraw(x: number, y: number) { }
+  public endDraw(x: number, y: number) { }
+}
+
 function main() {
+  foo()
   const board = new Board()
   initCanvas()
   initEventHandler(board)
@@ -59,9 +68,4 @@ function getCanvas(): HTMLCanvasElement {
   return canvas
 }
 
-class Board {
-  public startDraw(x: number, y: number) { }
-  public upateDraw(x: number, y: number) { }
-  public endDraw(x: number, y: number) { }
-}
 

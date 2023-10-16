@@ -4,7 +4,9 @@
   "author": "shengjie <shengjie0202@outlook.com>",
   "private": true,
   "workspaces": [
-    "utils",
-    "whiteboard"
-  ]
+    "packages/*"
+  ],
+  "devDependencies": {
+    "typescript": "^5.2.2"
+  }
 }
