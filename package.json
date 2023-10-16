@@ -7,6 +7,10 @@
     "packages/*"
   ],
   "devDependencies": {
+    "@trivago/prettier-plugin-sort-imports": "^4.2.0",
     "typescript": "^5.2.2"
+  },
+  "dependencies": {
+    "prettier": "^3.0.3"
   }
 }

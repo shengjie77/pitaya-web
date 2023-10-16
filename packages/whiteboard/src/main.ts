@@ -1,4 +1,4 @@
-import { foo } from 'packages/utils'
+import { foo } from '@packages/utils'
 
 class Board {
   public startDraw(x: number, y: number) { }
