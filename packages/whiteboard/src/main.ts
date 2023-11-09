@@ -1,5 +1,12 @@
 import { foo } from '@packages/utils'
 
+interface Point {
+  x: number
+  y: number
+}
+
+let points: Point[] = []
+
 class Board {
   public startDraw(x: number, y: number) { }
   public upateDraw(x: number, y: number) { }
@@ -38,6 +45,7 @@ function initEventHandler(board: Board) {
   const canvas = getCanvas()
   canvas.addEventListener('mousedown', (ev) => {
     isMouseDown = true
+    points = []
   })
 
   canvas.addEventListener('mousemove', (ev) => {
@@ -45,7 +53,10 @@ function initEventHandler(board: Board) {
       return
     }
 
-
+    points.push({
+      x: ev.clientX,
+      y: ev.clientY,
+    })
   })
 
   canvas.addEventListener('mouseup', (ev) => {
@@ -58,7 +69,29 @@ function initRenderer(board: Board) {
   const canvas = getCanvas()
   const ctx = canvas.getContext('2d')!
 
-  function render() { }
+  function render() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height)
+    ctx.save()
+    ctx.fillStyle = 'rgba(24, 160, 251, 0.25)'
+    ctx.strokeStyle = 'rgba(24, 160, 251, 1.0)'
+    // ctx.strokeStyle = '#ff0000'
+    ctx.lineWidth = 4
+    ctx.beginPath()
+    for (let i = 0; i < points.length; i++) {
+      const pt = points[i]
+      if (i === 0) {
+        ctx.moveTo(pt.x, pt.y)
+      } else {
+        ctx.lineTo(pt.x, pt.y)
+      }
+    }
+    ctx.closePath()
+    ctx.fill()
+    ctx.stroke()
+    ctx.restore()
+
+    requestAnimationFrame(() => render())
+  }
 
   requestAnimationFrame(() => render())
 }
